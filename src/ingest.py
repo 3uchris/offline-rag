@@ -39,7 +39,7 @@ def read_pdf(file_path: Path) -> str:
     text = ""
     for page in doc:
         text += page.get_text()
-    fitz.close()
+    doc.close()
     return text
 
 def read_docx(file_path: Path) -> str:
@@ -105,4 +105,5 @@ def ingest_all() -> list[Chunk]:
                 all_chunks.append(Chunk(text=chunk, source=file_path.name, chunk_index=i))
         except Exception as e:
             print(f"Error processing {file_path}: {e}")
+    print(all_chunks[:2])  # print the first 2 chunks for a sanity check
     return all_chunks

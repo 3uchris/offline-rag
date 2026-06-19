@@ -21,3 +21,5 @@ def main() -> None:
     chunks = ingest_all()
     print(f"{len(chunks)} chunks total.")
 
+if __name__ == "__main__":
+    main()
